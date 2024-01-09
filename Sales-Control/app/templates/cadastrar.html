@@ -29,11 +29,22 @@
     </style>
 </head>
 <body>
-    <h1>Produtos e Quantidades</h1>
-    <table>
-        <tbody>
-            {{ produtos_info | safe }}
-        </tbody>
-    </table>
+    <h1>Cadastrar Novo Produto</h1>
+    <form action="/cadastrar_novo_produto" method="post" enctype="multipart/form-data">
+        <label for="excelFile">Enviar Excel:</label><br>
+        <input type="file" id="excelFile" name="excelFile"><br><br>
+
+        <label for="produtoInput">Produto:</label><br>
+        <input type="text" id="produtoInput" name="produto"><br><br>
+
+        <label for="quantidadeInput">Quantidade:</label><br>
+        <input type="number" id="quantidadeInput" name="quantidade"><br><br>
+
+        <label for="precoInput">Preço:</label><br>
+        <input type="number" id="precoInput" name="preco" step="0.01"><br><br>
+
+        <input type="submit" value="Cadastrar">
+    </form>
+    
 </body>
 </html>

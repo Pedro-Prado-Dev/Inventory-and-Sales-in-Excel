@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <title>Novo - Produtos</title>
+        <style>
+            /* Estilos CSS podem ser adicionados aqui */
+            body {
+                font-family: Arial, sans-serif;
+                margin: 20px;
+            }
+            h1 {
+                text-align: center;
+            }
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                margin-top: 20px;
+            }
+            th, td {
+                border: 1px solid #ddd;
+                padding: 8px;
+                text-align: left;
+            }
+            th {
+                background-color: #f2f2f2;
+            }
+        </style>
+    </head>
+<body>
+    <h1>Cadastrar Novo Produto</h1>
+    <form action="/novo_produto" method="post">
+        <label for="produtoInput">Produto:</label><br>
+        <input type="text" id="produtoInput" name="produto"><br><br>
+
+        <label for="quantidadeInput">Quantidade:</label><br>
+        <input type="number" id="quantidadeInput" name="quantidade"><br><br>
+
+        <input type="submit" value="Cadastrar">
+    </form>
+</body>
+</html>

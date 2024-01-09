@@ -26,11 +26,11 @@
 <body>
     <div class="container">
         <h1>Bem-vindo ao Sistema de Controle</h1>
-        <form action="/upload" method="post" enctype="multipart/form-data">
-            <label for="excelFile">Selecione um arquivo Excel:</label><br>
-            <input type="file" id="excelFile" name="excelFile"><br><br>
-            <input type="submit" value="Enviar">
-        </form>
+        <div class="options">
+            <a href="/cadastrar" class="button">Cadastrar Novo Produto</a>
+            <a href="/adicionar" class="button">Adicionar Quantidade</a>
+            <a href="/visualizar" class="button">Visualizar Produtos</a>
+        </div>
     </div>
     <!-- Adicione aqui seus scripts JavaScript ou links para bibliotecas JS -->
     <script>
