@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Visualizar Produtos</title>
+</head>
+<body>
+    <h1>Produtos Cadastrados</h1>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Produto</th>
+                <th>Quantidade</th>
+                <th>Preço</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for index, row in produtos.iterrows() %}
+                <tr>
+                    <td>{{ row['Produtos'] }}</td>
+                    <td>{{ row['Quantidade'] }}</td>
+                    <td>{{ row['Preço'] }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <br>
+    <a href="/">Voltar</a>
+</body>
+</html>

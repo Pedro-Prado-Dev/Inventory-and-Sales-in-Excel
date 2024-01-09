@@ -25,7 +25,7 @@ def cadastrar_novo_produto():
     produto = request.form['produto']
     quantidade = int(request.form['quantidade'])
     preco = float(request.form['preco'])
-    data_atual = datetime.now().strftime('%Y-%m-%d_%H-%M-%S')
+    data_atual = datetime.now().strftime('%Y-%m-%d')
 
     try:
         arquivo_excel = request.files['excelFile']
@@ -68,9 +68,17 @@ def aumentar_quantidade_produto():
     return render_template('aumentar_quantidade.html')
 
 @app.route('/visualizar')
-def visualizar_produtos():
-    # Aqui você deve adicionar a lógica para ler os produtos do DataFrame ou do Excel
+def visualizar():
+    data_atual = datetime.now().strftime('%Y-%m-%d')
+    try:
+        arquivo_path = os.path.join(UPLOAD_FOLDER, f'planilha_{data_atual}.xlsx')
 
-    # Retorna os produtos em formato HTML para a página 'visualizar_produtos.html' (simulação)
-    produtos_info = "<h2>Produtos Cadastrados:</h2><p>Produto 1 - Quantidade: 10</p><p>Produto 2 - Quantidade: 15</p>"
-    return render_template('visualizar_produtos.html', produtos_info=produtos_info)
+        # Lê o arquivo Excel e identifica a planilha "Produtos"
+        df = pd.read_excel(arquivo_path, sheet_name='Produtos' if 'Produtos' in pd.ExcelFile(arquivo_path).sheet_names else None)
+
+        if df is None:
+            df = pd.DataFrame(columns=['Produtos', 'Quantidade', 'Preço'])
+
+        return render_template('visualizar.html', produtos=df)
+    except Exception as e:
+        return f"Erro ao processar o arquivo: {str(e)}"
